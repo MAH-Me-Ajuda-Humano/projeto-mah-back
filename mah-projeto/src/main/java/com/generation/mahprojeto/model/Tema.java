@@ -11,11 +11,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.validation.constraints.NotBlank;
-
 
 @Entity
 @Table(name = "tb_tema")
@@ -24,23 +22,28 @@ public class Tema {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
-	@NotBlank(message = "Título não pode estar vazio!")
-	@Size(min = 1, max = 150, message = "Número de caracteres inválido!")
-	private String titulo;
-	
+
+	/*
+	 * @NotBlank(message = "Título não pode estar vazio!")
+	 * 
+	 * @Size(min = 1, max = 150, message = "Número de caracteres inválido!") private
+	 * String titulo;
+	 */
+
 	@NotBlank(message = "Descrição não pode estar vazia!")
 	@Size(min = 1, max = 255, message = "Número de caracteres inválido!")
 	private String descricao;
 
-	@NotBlank(message = "Hashtag não pode estar vazia!")
-	@Size(min = 1, max = 100, message = "Número de caracteres inválido!")
-	private String hashtag;
-	
-	
+	/*
+	 * @NotBlank(message = "Hashtag não pode estar vazia!")
+	 * 
+	 * @Size(min = 1, max = 100, message = "Número de caracteres inválido!") private
+	 * String hashtag;
+	 */
+
 	@OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("tema")
-    private List<Postagem> postagem;
+	@JsonIgnoreProperties("tema")
+	private List<Postagem> postagem;
 
 	public long getId() {
 		return id;
@@ -48,14 +51,6 @@ public class Tema {
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public String getTitulo() {
-		return titulo;
-	}
-
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
 	}
 
 	public String getDescricao() {
@@ -66,14 +61,6 @@ public class Tema {
 		this.descricao = descricao;
 	}
 
-	public String getHashtag() {
-		return hashtag;
-	}
-
-	public void setHashtag(String hashtag) {
-		this.hashtag = hashtag;
-	}
-
 	public List<Postagem> getPostagem() {
 		return postagem;
 	}
@@ -81,13 +68,5 @@ public class Tema {
 	public void setPostagem(List<Postagem> postagem) {
 		this.postagem = postagem;
 	}
-	
-	
-	
 
-	
-
-	
-
-	
 }
