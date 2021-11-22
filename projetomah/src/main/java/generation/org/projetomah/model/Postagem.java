@@ -29,7 +29,7 @@ public class Postagem {
 
 	@NotNull
 	@Size(min = 1, max = 500)
-	private String postagem;
+	private String texto;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date data = new java.sql.Date(System.currentTimeMillis());
@@ -58,12 +58,12 @@ public class Postagem {
 		this.titulo = titulo;
 	}
 
-	public String getPostagem() {
-		return postagem;
+	public String getTexto() {
+		return texto;
 	}
 
-	public void setPostagem(String postagem) {
-		this.postagem = postagem;
+	public void setTexto(String texto) {
+		this.texto = texto;
 	}
 
 	public Date getData() {
